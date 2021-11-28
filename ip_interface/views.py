@@ -8,9 +8,10 @@ from django.http import JsonResponse, HttpResponse
 # Create your views here.
 class IP_Interface(View):
     def get(self,request):
-        latest_record = IP_Records.objects.values().order_by('-id')[:1][0]
         context = {'title':'ctadel | Home Server'}
-        context['ip'] = latest_record
+        latest_record = IP_Records.objects.values().order_by('-id')[:1]
+        if latest_record:
+            context['ip'] = latest_record[0]
         return render(request,"ip_interface/index.html",{'context':context})
 
     def post(self,request):
