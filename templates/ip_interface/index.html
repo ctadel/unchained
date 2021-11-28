@@ -20,7 +20,7 @@
         <div id="reload_btn"><img src="{% static "ip_interface/images/reload_icon.png" %}"></div>
         {% if context.ip %}
         <span id="ip_address">{{context.ip.ip}}</span><br>
-        <span id="ip_update_detail">Last Updated: {{context.ip.last_updated}}</span>
+        <span id="ip_update_detail">Last Updated<a href='ip_listings'>:</a> {{context.ip.last_updated}}</span>
         {% else %}
         <span id="ip_update_detail">Couldn't find the I P details</span>
         {% endif %}

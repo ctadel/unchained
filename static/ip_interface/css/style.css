@@ -39,6 +39,10 @@ body{
   position: absolute;
   bottom:5vh;
 }
+#ip_details a{
+    text-decoration:none;
+    color:grey;
+}
 
 #ip_update_detail{
   color:grey;
