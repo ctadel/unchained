@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+  <head>
+    <title>{{context.title}}</title>
+    <link rel="stylesheet" href="{% static "ip_interface/css/style.css" %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'ip_interface/icons/favicon.ico'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="{% static 'ip_interface/js/script.js' %}"></script>
+  </head>
+  <body>
+  <div class='box'>
+    <div class='wave -one'></div>
+    <div class='wave -two'></div>
+    <div class='wave -three'></div>
+  </div>
+  <div id="container">
+      <div id="img_bg"><img src="{% static "ip_interface/images/server_image.png" %}">
+    </div>
+    <div id="ip_details">
+        <div id="reload_btn"><img src="{% static "ip_interface/images/reload_icon.png" %}"></div>
+        {% if context.ip %}
+        <span id="ip_address">{{context.ip.ip}}</span><br>
+        <span id="ip_update_detail">Last Updated: {{context.ip.last_updated}}</span>
+        {% else %}
+        <span id="ip_update_detail">Couldn't find the I P details</span>
+        {% endif %}
+    </div>
+  </div>
+
+  </body>
+</html>
+
+

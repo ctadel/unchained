@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+  <head>
+    <title>{{context.title}}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'ip_interface/icons/favicon.ico'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+  <body>
+      <center><h3>IP Logs | ctadel</h3></center><br>
+      <hr>
+      {% if context.records %}
+          <table class="table table-striped">
+          <thead> <tr> <th scope="col">#</th> <th scope="col">IP</th> <th scope="col">Last Updated</th> <th scope="col">Last Checked</th> <th scope="col">Counts</th> </tr> </thead>
+              {% for record in context.records %}
+                <tr>
+                    <th scope="row">{{record.id}}</th>
+                    <td>{{record.ip}}</td>
+                    <td>{{record.last_updated}}</td>
+                    <td>{{record.last_checked}}</td>
+                    <td>{{record.count}}</td>
+                </tr>
+              {% endfor %}
+          </table>
+      {% endif %}
+
+  </body>
+</html>
